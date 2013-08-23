@@ -77,12 +77,3 @@ function api_request(items) {
 }
 
 
-
-
-//"token" => "KUJ3mB50E0XMwqgSlyAKwPYuKobW74",
-//"user" => "OpgZaTYmI0taAKlWkhyjeOP9kyudrK",
-//"title" => $title,
-//"message" => $message,
-
-
-//7DexBWaQxmKHtRuc4fsiIIDDdRLqc0
