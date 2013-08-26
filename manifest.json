@@ -3,13 +3,13 @@
 
   "name": "Voys click-to-dial",
   "description": "Addon voor Chrome om gebruik te maken van de click-to-dial functionaliteit van Voys",
-  "version": "0.1",
+  "version": "0.2",
   "background": {
-      "scripts": ["message.js"]
+      "scripts": ["/assets/js/click-to-dial.js"]
     }, 
   "browser_action": {
-    "default_icon": "icon-16.png",
-    "default_popup": "popup.html"
+    "default_icon": "/assets/images/icon-16.png",
+    "default_popup": "settings.html"
   },
   "permissions": [
     "http://*/*", 
@@ -19,8 +19,8 @@
   ],
 
   "icons": {
-    "16": "icon-16.png",
-    "48": "icon-48.png",
-    "128": "icon-128.png"
+    "16": "/assets/images/icon-16.png",
+    "48": "/assets/images/icon-48.png",
+    "128": "/assets/images/icon-128.png"
   }
 }
