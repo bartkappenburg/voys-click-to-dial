@@ -4,6 +4,7 @@ Installeer de extensie via de developer mode in je Chrome browser, vul je gegeve
 click-to-dial functionaliteit van Voys.nl. 
 
 Of download the gecompilde extensie hier:
+
 https://chrome.google.com/webstore/detail/voys-click-to-dial/gocpnmepfjonbccnjodfdomjmlfolabh
 
 Werkt alleen als je klant ben bij Voys ;-).
