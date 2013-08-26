@@ -12,6 +12,8 @@ var serverResponse = "Server response:";
 var callInProgress = "Nummer wordt gebeld.";
 var missingSettings = "Je instellingen zijn niet compleet. Vul ze in via de extensie.";
 var noValidNumber = "Dit is geen geldig telefoonnummer.";
+var errorMessage = "Foutmelding";
+var succesMessage = "Gelukt!";
 
 //create the right click context menu
 var id = chrome.contextMenus.create({"title": contextMenuMessage, "contexts":["page","selection"],
@@ -32,7 +34,7 @@ function call(b_number)
 
 		//b_number check
 		items["b_number"] = fix_number_format(b_number);
-		if (items["b_number"] == false) {alert(noValidNumber); throw "Invalid phone number";}
+		if (items["b_number"] == false) {show_notification(errorMessage, noValidNumber); throw "Invalid phone number";}
 
 		//set the correct auto_answer value
 		if (items["auto_answer"] == "false") {items["auto_answer"] = false;} else {items["auto_answer"] = true;}
@@ -41,7 +43,7 @@ function call(b_number)
 		if (items["hash"] && items["hash"].length > 0 && items["a_number"] && items["a_number"].length > 0) {
 			api_request(items) } 
 		else {
-			alert(missingSettings);
+			show_notification(errorMessage, missingSettings);
 		}
 	});
 
@@ -64,7 +66,20 @@ function fix_number_format(number) {
 
 }
 
+// Create a notification:
+function show_notification(title, message) {
 
+	var notification = webkitNotifications.createNotification(
+	  '/assets/images/icon-48.png',  // icon url - can be relative
+	  title,  // notification title
+	  message  // notification body text
+	);
+
+
+	notification.show();
+
+
+}
 //fire the request
 function api_request(items) {
 
@@ -83,11 +98,11 @@ function api_request(items) {
 	        if (req.readyState == 4)
 	            if (req.status != 201 && req.status != 200 && req.status != 202) {
 	            			            		
-	            		alert(callFailed + "\n\n" + serverResponse + "\n" + req.responseText);
+	            		show_notification(errorMessage, callFailed + "\n\n" + serverResponse + "\n" + req.responseText);
 	            		
 	            } else {
 	                
-	                    alert(callInProgress);
+	                    show_notification(succesMessage,callInProgress);
 	                
 	            };
 	    };
