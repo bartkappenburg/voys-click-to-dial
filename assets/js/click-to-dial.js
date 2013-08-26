@@ -5,9 +5,6 @@
 var apiUrl = "https://api.voipgrid.nl/api/";
 var apiEndpoint = "clicktodial";
 
-//init variables
-
-
 //messages
 var contextMenuMessage = "Bel dit nummer"
 var callFailed = "Click to dial failed. Controleer je instellingen.";
@@ -55,6 +52,7 @@ function call(b_number)
 function fix_number_format(number) {
 		
 		number = number.replace('+','00');
+		number = number.replace(/^(00[0-9]{1,3})0/, "$1");
 		number = number.replace(/[^0-9\+]/gmi,'');
 		if (number.length > 0) {
 			return number;
