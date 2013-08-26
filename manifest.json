@@ -3,7 +3,7 @@
 
   "name": "Voys click-to-dial",
   "description": "Addon voor Chrome om gebruik te maken van de click-to-dial functionaliteit van Voys",
-  "version": "0.2",
+  "version": "0.3",
   "background": {
       "scripts": ["/assets/js/click-to-dial.js"]
     }, 
